@@ -13,3 +13,11 @@ model User {
   email    String @unique
   password String
 }
+
+model News {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  createdAt   DateTime @default(now())
+  area        String
+}
