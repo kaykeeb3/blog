@@ -1,4 +1,4 @@
-# Projeto de API de um Blog
+# Projeto API de um Blog
 
 ## Descrição do Projeto
 
