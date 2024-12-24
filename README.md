@@ -1,94 +1,94 @@
-# API de Gerenciamento de Notícias e Perfis de Usuários
+# News and User Profiles Management API
 
-Este projeto é uma API desenvolvida para permitir o cadastro, login e gerenciamento de notícias e perfis de usuários. A solução foi construída utilizando **Node.js**, **TypeScript**, **JWT** para autenticação, **Prisma ORM** para interação com o banco de dados, e segue princípios de **Clean Architecture** e boas práticas de desenvolvimento de software.
+This project is an API developed to enable user registration, login, and management of news and user profiles. The solution is built using **Node.js**, **TypeScript**, **JWT** for authentication, **Prisma ORM** for database interaction, and follows **Clean Architecture** principles and good software development practices.
 
-## Funcionalidades
+## Features
 
-### Autenticação
-- **Cadastro de Usuário**: Permite o registro de novos usuários com nome, e-mail e senha.
-- **Login de Usuário**: Autentica usuários e gera um token JWT para acesso a recursos protegidos.
+### Authentication
+- **User Registration**: Allows new users to register with name, email, and password.
+- **User Login**: Authenticates users and generates a JWT token for access to protected resources.
 
-### Gestão de Notícias
-- **Criação de Notícias**: Usuários autenticados podem criar novas notícias, com título, descrição e categoria.
-- **Edição de Notícias**: Usuários autenticados podem editar suas próprias notícias.
-- **Exclusão de Notícias**: Usuários autenticados podem excluir suas notícias.
-- **Listagem de Notícias**: Usuários autenticados podem visualizar todas as notícias publicadas.
+### News Management
+- **Create News**: Authenticated users can create new news with title, description, and category.
+- **Edit News**: Authenticated users can edit their own news.
+- **Delete News**: Authenticated users can delete their news.
+- **List News**: Authenticated users can view all published news.
 
-### Perfil de Usuário
-- **Criação e Atualização de Perfil**: Usuários podem criar e atualizar seus perfis, incluindo nome, descrição e URL da foto.
-- **Visualização de Perfil**: Usuários podem visualizar seu próprio perfil.
+### User Profile
+- **Create and Update Profile**: Users can create and update their profiles, including name, description, and photo URL.
+- **View Profile**: Users can view their own profile.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
-- **Node.js**: Plataforma de desenvolvimento para construir a API.
-- **TypeScript**: Superconjunto do JavaScript que oferece tipagem estática e melhora a manutenção do código.
-- **Express.js**: Framework minimalista e flexível para construção de APIs.
-- **JWT (JSON Web Token)**: Para autenticação e autorização de usuários.
-- **Prisma ORM**: ORM para interagir de forma eficiente com o banco de dados.
-- **bcryptjs**: Biblioteca para hashing seguro de senhas.
+- **Node.js**: Development platform for building the API.
+- **TypeScript**: A superset of JavaScript that provides static typing and improves code maintenance.
+- **Express.js**: Minimal and flexible framework for building APIs.
+- **JWT (JSON Web Token)**: For authentication and user authorization.
+- **Prisma ORM**: ORM for efficient database interaction.
+- **bcryptjs**: Library for secure password hashing.
 
-## Arquitetura e Estrutura do Projeto
+## Architecture and Project Structure
 
-A aplicação segue a arquitetura limpa (Clean Architecture) para garantir a separação de responsabilidades e facilitar a escalabilidade e manutenção do código.
+The application follows Clean Architecture to ensure separation of concerns and facilitate scalability and code maintenance.
 
-### Estrutura de Diretórios
+### Directory Structure
 
 ```
 /src
   /config
-    - database.ts           # Configuração do banco de dados
+    - database.ts           # Database configuration
   /controllers
-    - AuthController.ts     # Lógica de autenticação
-    - HomeController.ts     # Roteamento inicial
-    - NewsController.ts     # Controle de notícias
-    - ProfileController.ts  # Controle de perfis
-    - UserController.ts     # Controle de usuários
+    - AuthController.ts     # Authentication logic
+    - HomeController.ts     # Initial routing
+    - NewsController.ts     # News management logic
+    - ProfileController.ts  # Profile management logic
+    - UserController.ts     # User management logic
   /dtos
-    - CreateUserDTO.ts      # Data Transfer Object para criação de usuário
-    - CreateNewsDTO.ts      # DTO para criação de notícias
-    - CreateProfileDTO.ts   # DTO para criação de perfil de usuário
+    - CreateUserDTO.ts      # Data Transfer Object for user registration
+    - CreateNewsDTO.ts      # DTO for news creation
+    - CreateProfileDTO.ts   # DTO for profile creation
   /interfaces
-    - IAuthService.ts       # Interface de serviço de autenticação
-    - IUserService.ts       # Interface de serviço de usuários
-    - INewsService.ts       # Interface de serviço de notícias
-    - IProfileService.ts    # Interface de serviço de perfis
+    - IAuthService.ts       # Interface for authentication service
+    - IUserService.ts       # Interface for user service
+    - INewsService.ts       # Interface for news service
+    - IProfileService.ts    # Interface for profile service
   /middlewares
-    - authenticateToken.ts  # Middleware para verificar o token JWT
-    - validateNews.ts       # Validação de dados de notícias
-    - validateProfile.ts    # Validação de dados de perfil
+    - authenticateToken.ts  # Middleware to verify JWT token
+    - validateNews.ts       # News data validation middleware
+    - validateProfile.ts    # Profile data validation middleware
   /repositories
-    - PrismaUserRepository.ts   # Repositório de usuários usando Prisma
-    - PrismaNewsRepository.ts   # Repositório de notícias usando Prisma
-    - PrismaProfileRepository.ts # Repositório de perfis usando Prisma
+    - PrismaUserRepository.ts   # User repository using Prisma
+    - PrismaNewsRepository.ts   # News repository using Prisma
+    - PrismaProfileRepository.ts # Profile repository using Prisma
   /routes
-    - index.ts              # Roteamento da API
+    - index.ts              # API routing
   /services
-    - AuthService.ts        # Serviço de autenticação
-    - UserService.ts        # Serviço de gerenciamento de usuários
-    - NewsService.ts        # Serviço de gerenciamento de notícias
-    - ProfileService.ts     # Serviço de gerenciamento de perfis
-  - server.ts               # Arquivo de inicialização do servidor
-  - app.ts                  # Configuração e instância do servidor Express
+    - AuthService.ts        # Authentication service
+    - UserService.ts        # User management service
+    - NewsService.ts        # News management service
+    - ProfileService.ts     # Profile management service
+  - server.ts               # Server initialization file
+  - app.ts                  # Express server setup
 ```
 
-## Instalação e Execução
+## Installation and Running
 
 ### Backend
 
-1. Clone o repositório:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/kaykeeb3/blog.git
-   cd seu-repositorio/server
+   cd your-repository/server
    ```
 
-2. Instale as dependências:
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-3. Configure as variáveis de ambiente criando o arquivo `.env` na raiz do projeto:
+3. Configure environment variables by creating a `.env` file at the root of the project:
 
    ```env
    DATABASE_URL=""
@@ -96,94 +96,94 @@ A aplicação segue a arquitetura limpa (Clean Architecture) para garantir a sep
    PORT=3333
    ```
 
-4. Execute as migrações do Prisma:
+4. Run Prisma migrations:
 
    ```bash
    npx prisma migrate dev
    ```
 
-5. Inicie o servidor:
+5. Start the server:
 
    ```bash
    npm run dev
    ```
 
-Agora, a API estará disponível para receber requisições.
+Now, the API will be available to receive requests.
 
-## Exemplos de Uso da API
+## API Usage Examples
 
-### Cadastro de Usuário
+### User Registration
 
 ```bash
 POST /register
 {
   "name": "John Doe",
   "email": "johndoe@example.com",
-  "password": "senha_secreta"
+  "password": "secret_password"
 }
 ```
 
-### Login de Usuário
+### User Login
 
 ```bash
 POST /login
 {
   "email": "johndoe@example.com",
-  "password": "senha_secreta"
+  "password": "secret_password"
 }
 ```
 
-### Criação de Notícias
+### Create News
 
 ```bash
 POST /news
 {
-  "title": "Título da Notícia",
-  "description": "Descrição da Notícia",
-  "category": "Categoria da Notícia"
+  "title": "News Title",
+  "description": "News Description",
+  "category": "News Category"
 }
 ```
 
-### Atualização de Notícias
+### Update News
 
 ```bash
 PUT /news/:id
 {
-  "title": "Título Atualizado",
-  "description": "Descrição Atualizada",
-  "category": "Categoria Atualizada"
+  "title": "Updated Title",
+  "description": "Updated Description",
+  "category": "Updated Category"
 }
 ```
 
-### Exclusão de Notícias
+### Delete News
 
 ```bash
 DELETE /news/:id
 ```
 
-### Criação e Atualização de Perfil
+### Create and Update Profile
 
 ```bash
 POST /profile
 {
   "name": "John Doe",
-  "description": "Descrição do Perfil",
-  "photoUrl": "http://url-da-foto.com/foto.jpg"
+  "description": "Profile Description",
+  "photoUrl": "http://url-to-photo.com/photo.jpg"
 }
 ```
 
-### Visualização de Perfil
+### View Profile
 
 ```bash
 GET /profile
 ```
 
-## Contribuição
+## Contributing
 
-Contribuições são bem-vindas! Para colaborar, siga os passos abaixo:
+Contributions are welcome! To contribute, follow the steps below:
 
-1. Faça um fork do repositório
-2. Crie uma nova branch para a sua feature (`git checkout -b feature/nova-feature`)
-3. Realize os commits das suas alterações (`git commit -am 'Adicionei uma nova feature'`)
-4. Envie suas alterações para o repositório remoto (`git push origin feature/nova-feature`)
-5. Abra um Pull Request com a descrição detalhada da sua contribuição.
+1. Fork the repository
+2. Create a new branch for your feature (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -am 'Added a new feature'`)
+4. Push your changes to the remote repository (`git push origin feature/new-feature`)
+5. Open a Pull Request with a detailed description of your contribution.
